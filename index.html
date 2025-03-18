@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viaggio Arcano - Explore With Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #6d89a6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #6d89a6;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background:url('back.jpg') no-repeat center center/cover;
+            position: relative;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+        
+        .hero-content h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #6d89a6;
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #516b85;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #6d89a6;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .about-text {
+            flex: 1;
+            padding-right: 40px;
+        }
+        
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: #111;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-image {
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .service-content p {
+            margin-bottom: 15px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .testimonial-text {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: #111;
+        }
+        
+        .contact-content {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .contact-info {
+            flex: 1;
+            padding-right: 40px;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details {
+            list-style: none;
+        }
+        
+        .contact-details li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0d0d0d;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #6d89a6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            overflow: hidden;
+        }
+        
+        .footer-logo img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .social-links li {
+            margin: 0 10px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #1a1a1a;
+            border-radius: 50%;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #6d89a6;
+        }
+        
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .footer-nav li {
+            margin: 0 15px;
+        }
+        
+        .footer-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .footer-nav a:hover {
+            color: #6d89a6;
+        }
+        
+        .copyright {
+            color: #777;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 42px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .contact-info {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="WhatsApp Image 2025-03-18 at 15.16.16_6b75c9a3.jpg" alt="Viaggio Arcano Logo">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Experiences</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>GET YOUR NEW EXPERIENCE</h1>
+                <p>Pengalaman baru dengan orang-orang baru yang dapat menambah keseruan liburan anda</p>
+                <a href="#about" class="btn">Explore With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Welcome to Mysterious Trip</h3>
+                    <p>Dapatkan berbagai pengalaman baru dalam perjalanan anda bersama kami dengan berbagai cerita seru dan pengalaman yang menarik dalam setiap detik perjalanan anda.</p>
+                    <p>Tim kami berpengalaman di wisata di daerah Malang Raya, pastikan anda bisa mendapatkan pengalaman ekstra yang tidak salah agar anda bisa menikmati keindahan Malang tanpa adanya hambatan dan gangguan yang berarti</p>
+                    <a href="#services" class="btn">Our Experiences</a>
+                </div>
+                <div class="about-image">
+                    <img src="WhatsApp Image 2025-02-23 at 18.27.56_bb1539bd.jpg" alt="About Viaggio Arcano">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Experiences</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src=" tumpak sewu.jpg" alt="Mountain Expeditions">
+                    </div>
+                    <div class="service-content">
+                        <h3>Air terjun Tumpak Sewu</h3>
+                        <P>Tumpak Sewu adalah air terjun bertingkat setinggi 120 meter yang terletak di perbatasan Kabupaten Lumajang dan Malang, Jawa Timur. Airnya berasal dari Sungai Glidik yang berhulu di Gunung Semeru, mengalir menyerupai tirai di antara tebing curam dengan ketinggian 500 mdpl. Dikelilingi vegetasi tropis yang lebat, panorama air terjun ini semakin indah dengan latar belakang Gunung Semeru.</P>
+                        <p>jl.Tumpak Sewu, Sidomulyo, Pronojiwo, Lumajang, Jawa Timur</p>
+                        <a href="https://wa.me/6287780447303?text=Halo,%20Admin%20saya%20ingin%20bertanya%20tentang%20opentripnya" class="btn">Start From IDR 100k</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="btk.jpg" alt="Cultural Immersion">
+                    </div>
+                    <div class="service-content">
+                        <h3>Gunung Buthak</h3>
+                        <p>Gunung Buthak adalah gunung setinggi 2.868 mdpl di perbatasan Malang dan Blitar, Jawa Timur. Bagian dari Pegunungan Kawi, gunung ini memiliki jalur pendakian menantang dengan puncak luas dan pemandangan indah. Pendakian bisa ditempuh via Panderman, Sirah Kencong, atau Pujon, dengan waktu sekitar 6-8 jam. Disarankan membawa perlengkapan yang memadai dan memperhatikan cuaca.</p>
+                        <p>Ngadirenggo, Kec Wlingi, Kab Blitar, Jawa Timur</p>
+                        <a href="https://wa.me/6287780447303?text=Halo,%20Admin%20saya%20ingin%20bertanya%20tentang%20opentripnya" class="btn">Start from Idr 100k</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="3.jpg" alt="Mystical Tours">
+                    </div>
+                    <div class="service-content">
+                        <h3>Pantai Banyu Meneng</h3>
+                        <p>Pantai Banyu Meneng adalah pantai berpasir putih di Malang Selatan yang terkenal dengan ombaknya yang tenang karena terlindung oleh batu karang. Airnya jernih dan cocok untuk berenang atau bermain air. Pantai ini juga memiliki area camping serta pemandangan matahari terbenam yang indah. Terletak dekat dengan Pantai Kondang Merak, akses ke sini bisa ditempuh dengan kendaraan pribadi melalui jalur yang cukup menantang.</p>
+                        <p>Sumberbening, Kec Bantur, Kab Malang, Jawa Timur
+                        </p>
+                        <a href="https://wa.me/6287780447303?text=Halo,%20Admin%20saya%20ingin%20bertanya%20tentang%20opentripnya" class="btn">Start From Idr 100k</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                        <div class="service-image">
+                            <img src="bdgas.jpg" alt="Cultural Immersion">
+                        </div>
+                    <div class="service-content">
+                        <h3>Gunung Budug Asu</h3>
+                        <p>Budug Asu adalah bukit dengan ketinggian sekitar 1.500 mdpl yang terletak di lereng Gunung Arjuno, Malang. Tempat ini terkenal sebagai jalur trekking dengan medan menantang, cocok untuk pendaki pemula maupun pecinta trail adventure.  </p>
+                        <p>Kreweh, Gunungrejo, Kec Singosari, Kab Malang, Jawa Timur</p>
+                        <a href="https://wa.me/6287780447303?text=Halo,%20Admin%20saya%20ingin%20bertanya%20tentang%20opentripnya" class="btn">Start From Idr 50k</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                        <div class="service-image">
+                            <img src="rgl.jpg" alt="Cultural Immersion">
+                        </div>
+                    <div class="service-content">
+                        <h3>Ranu Regulo</h3>
+                        <p>Ranu Regulo adalah danau kecil yang terletak di kawasan Taman Nasional Bromo Tengger Semeru, dekat Ranu Kumbolo. Berada di ketinggian sekitar 2.100 mdpl, danau ini memiliki suasana tenang dengan pemandangan pegunungan dan hutan pinus di sekelilingnya. </p>
+                        <p>Ranupani, Kec Senduro, Kab Lumajang, Jawa Timur</p>
+                        <a href="https://wa.me/6287780447303?text=Halo,%20Admin%20saya%20ingin%20bertanya%20tentang%20opentripnya" class="btn">Start From Idr 150k</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                        <div class="service-image">
+                            <img src="prv.jpg" alt="Cultural Immersion">
+                        </div>
+                    <div class="service-content">
+                        <h3>Private Trip (by request customer)</h3>
+                        <p>Kami juga menawarkan private trip ke wisata di Malang Raya sesuai dengan kemauan dan keinginan anda sesuai dengan ketentuan dan syarat yang berlaku.</p>
+                        <p>Hubungi kami lebih lanjut</p>
+                        <a href="https://wa.me/6287780447303?text=Halo,%20Admin%20saya%20ingin%20bertanya%20tentang%20opentripnya" class="btn">Start From Idr 100k</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Bagaimana perasaan mereka ?</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Pengalaman saya bersama trip viagio arcano sungguh sangat berkesan, saya jadi bisa eksplore malamg raya dengan tenang, meskipun kita sendirian tidak masalah, karena nanti akan ada banyak teman-teman baru disana."</p>
+                    <p class="testimonial-author">- Angel, Malang</p>
+                </div>
+                <div class="service-image">
+                    <img src="WhatsApp Image 2025-02-23 at 18.37.49_52247407.jpg" alt="Mystical Tours">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p>Jelajahi wisata sesuai dengan permintaan dan wishlist anda dengan paket private trip dengan fasilitas lengkap dan harga termurah di Malang Raya</p>
+                    <ul class="contact-details">
+                        <li>Email   : viagioarcano@gmail.com</li>
+                        <li>No hp/WA : +62 87780447303</li>
+                        <li>Alamat  : Jl. Agus Salim I/6A, Sisir, Batu, Jawa Timur</li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="WhatsApp Image 2025-03-18 at 15.16.16_6b75c9a3.jpg" alt="Viaggio Arcano Logo">
+            </div>
+            <ul class="social-links">
+                <li><a href="https://www.instagram.com/viagioo.arcano?igsh=MWZ4ZmRranBmODBnNQ=="target="_blank">IG</a></li>
+                <li><a href="https://www.tiktok.com/@viagioarcano?_t=ZS-8umXftflGie&_r=1"target="_blank">TT</a></li>
+            </ul>
+            <ul class="footer-nav">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Experiences</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <p class="copyright">&copy; 2025 Viaggio Arcano. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
