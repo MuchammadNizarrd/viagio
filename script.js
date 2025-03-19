@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-//vidio banyu meneng//
+// banyu meneng//
 document.addEventListener("DOMContentLoaded", function () {
     var banyumenengBtn = document.getElementById("banyu-meneng-btn");
     var videoContainer = document.getElementById("tiktok-video-banyu");
