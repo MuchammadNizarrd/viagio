@@ -106,7 +106,7 @@ nav {
 
 .btn {
     display: inline-block;
-    background-color: #6d89a6;
+    background-color: #007bff;
     color: #fff;
     padding: 12px 30px;
     border: none;
@@ -118,7 +118,7 @@ nav {
 }
 
 .btn:hover {
-    background-color: #516b85;
+    background-color: #9bbada;
 }
 
 /* About Section */
@@ -581,4 +581,65 @@ footer {
     cursor: pointer;
     font-size: 16px;
     padding: 5px;
+}
+
+.but {
+    display: inline-block;
+    background-color: #ff0000;
+    color: #fff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.but:hover {
+    background-color: #31ec2b;
+}
+/*Wonogoro*/
+#tiktok-video-wonogoro {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    height: 550px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    display: none; /* Sembunyikan awalnya */
+}
+#close-video-wonogoro {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+}
+.ton {
+    display: inline-block;
+    background-color: #eaf605;
+    color: #fff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.ton:hover {
+    background-color: #31ec2b;
 }
